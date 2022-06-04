@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+
+<div class = "alert-custom col-md-12">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message | safe }}
+                <!-- |safe is a jinja2 filter that prevents automatic escaping -->
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+
+<body>
+
+<h2 style="text-align:center">CREATE PROJECT</h2>
+
+<form action="/CRUD/Create/Project" method="POST">
+  <h3>ADD TABLE:</h3>
+  <label>Title:</label><br>
+  <input type="text" id="Title" name="Title"><br><br>
+  <label>Summary:</label><br>
+  <input type="text" id="Summary" name="Summary"><br><br>
+  <label>Funding amount:</label><br>
+  <input type="number" min="100000" max="1000000" id="Funding_amount" name="Funding_amount"><br><br>
+  <label>Start date:</label><br>
+  <input type="date" id="Start_date" name="Start_date"><br><br>
+  <label>Finish date:</label><br>
+  <input type="date" id="Finish_date" name="Finish_date"><br><br>
+  <label>Program ID:</label><br>
+  <input type="number" min='1' id="Program_id" name="Program_id"><br><br>
+  <label>Executive_id:</label><br>
+  <input type="number" min='1' id="Executive_id" name="Executive_id"><br><br>
+  <label>Organisation ID:</label><br>
+  <input type="number" min='1' id="Org_id" name="Org_id"><br><br>
+  <label>ID of supervisor:</label><br>
+  <input type="number" min='1' id="Researcher_id_sup" name="Researcher_id_sup"><br><br>
+  <label>ID of evaluator:</label><br>
+  <input type="number" min='1' id="Researcher_id_eval" name="Researcher_id_eval"><br><br>
+  <label>Evaluation date:</label><br>
+  <input type="date" id="Eval_date" name="Eval_date"><br><br>
+  <label>Project grade:</label><br>
+  <input type="number" min='0' max='10' step='.1' id="Eval_grade" name="Eval_grade"><br><br>
+
+  <input type="submit" name="button">
+</form>
+
+
+</body>
+</html>

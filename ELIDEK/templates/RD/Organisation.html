@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+<div class = "alert-custom col-md-12">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message | safe }}
+                <!-- |safe is a jinja2 filter that prevents automatic escaping -->
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+
+<h2 style="text-align:center">Organisations:</h2>
+
+<form action = "/CRUD/Read-Modify-Delete/Organisation" method = "post">
+<table style="overflow-x:auto;">
+  <tr>
+    <th>Organisation ID</th>
+    <th>Abbreviation</th>
+    <th>Name</th>
+    <th>ZIP Code</th>
+    <th>Address</th>
+    <th>City</th>
+    <th>Type of Organisation</th>
+    <th>Ministry Budget</th>
+    <th>Private Budget</th>
+    <th>Equity</th>
+    <th><input type="submit" name="button" value="Update"></form></th>
+    <th><input type="submit" name="button" value="Delete"></form></th>
+  </tr>
+
+  {% for Organisation in Organisations %}
+    <tr>
+      <td>{{ Organisation.Org_id }}</td>
+      <td>{{ Organisation.Abbreviation }}</td>
+      <td>{{ Organisation.Name }}</td>
+      <td>{{ Organisation.Zip_Code }}</td>
+      <td>{{ Organisation.Street }}</td>
+      <td>{{ Organisation.City }}</td>
+      <td>{{ Organisation.Organisation_Type  }}</td>
+      <td style="text-align:center">{%if Organisation.Min_budget%} {{ Organisation.Min_budget }} {%else%} - {%endif%}</td>
+      <td style="text-align:center">{%if Organisation.Priv_budget%} {{ Organisation.Priv_budget }} {%else%} - {%endif%}</td>
+      <td style="text-align:center">{%if Organisation.Equity%} {{ Organisation.Equity }} {%else%} - {%endif%}</td>
+      <td style="text-align:center"><input type="radio" name="Update" value="{{ Organisation.Org_id}},{{Organisation.Organisation_Type }}"></td>
+      <td style="text-align:center"><input type="checkbox" name="Delete" value="{{ Organisation.Org_id }}"></td>
+    </tr>
+  {% endfor %}
+</table>
+</form>
+
+</body>
+</html>

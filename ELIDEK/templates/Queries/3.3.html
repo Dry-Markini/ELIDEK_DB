@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+
+<body>
+
+<h2>Projects:</h2>
+
+<table style="overflow-x:auto;">
+  <tr>
+    <th>ID</th>
+	<th>Title</th>
+  </tr>
+  {% for Project in Projects %}
+    <tr>
+      <td>{{ Project.Project_id }}</td>
+	  <td>{{ Project.Title }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+<h2>Researchers:</h2>
+
+<table style="overflow-x:auto;">
+  <tr>
+    <th>First Name</th>
+	<th>Last Name</th>
+  </tr>
+  {% for Researcher in Researchers %}
+    <tr>
+      <td>{{ Researcher.First_name }}</td>
+	  <td>{{ Researcher.Last_name }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+
+</body>
+</html>

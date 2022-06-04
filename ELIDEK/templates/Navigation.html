@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+
+<html>
+<body>
+
+
+
+<div class = "alert-custom col-md-12">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message | safe }}
+                <!-- |safe is a jinja2 filter that prevents automatic escaping -->
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+
+
+
+<h2 style="text-align:center">ELIDEK DB</h2>
+
+<p>
+<button onclick="location.href = '/CRUD';" >GO</button>
+<b>Create, Read, Update, Delete</b> tables
+</p>
+
+<p>========================================================================================================</p>
+
+<p>
+<button onclick="location.href = '/3.1';" >3.1</button>
+View available <b>programs</b> and <b>projects</b> using multiple criteria. Get the researchers working on a selected project.
+</p>
+
+<p>========================================================================================================</p>
+
+
+
+<p><button onclick="location.href = '/3.2';" >3.2</button>
+Different <b>views</b> of ELIDEK DB: <br>
+<b>1)</b> Projects per Researcher <br>
+<b>2)</b> Number of Projects per Researcher <br>
+<b>3)</b> Types of Organisations</p>
+
+
+
+<p>========================================================================================================</p>
+
+
+
+<form action = "/3.3" method = "post">
+<p><input type="submit" value="3.3">
+<b>Active projects</b> in a certain <b>field</b> & <b>researchers</b> working on that field the <b>past year</b>.</p>
+<p>Field name:
+<input type="text" id="Field" name="Field">
+</p>
+</form>
+
+
+
+<p>========================================================================================================</p>
+
+
+
+<p><button onclick="location.href = '/3.4';" >3.4</button>
+<b>Organisations</b> that undertook the same number of projects in two consecutive years,
+with at least 10 projects per year.</p>
+
+
+
+<p>========================================================================================================</p>
+
+
+
+<p><button onclick="location.href = '/3.5';" >3.5</button>
+<b>Top-3 most frequent field pairs</b> in both active and inactive projects.</p>
+
+
+
+<p>========================================================================================================</p>
+
+
+
+<p><button onclick="location.href = '/3.6';" >3.6</button>
+<b>Young researchers</b> (age<40), sorted by the number of active projects they participate in, in descending order.</p>
+
+
+
+<p>========================================================================================================</p>
+
+
+
+<p><button onclick="location.href = '/3.7';" >3.7</button>
+<b>Top-5 executives</b> that granted the most funds to a company.</p>
+
+
+
+<p>========================================================================================================</p>
+
+
+
+<p><button onclick="location.href = '/3.8';" >3.8</button>
+<b>Researchers</b> working in <b>5 or more</b> projects that do not have <b>deliverables</b>
+</p>
+
+
+
+<p>========================================================================================================</p>
+
+
+</body>
+</html>

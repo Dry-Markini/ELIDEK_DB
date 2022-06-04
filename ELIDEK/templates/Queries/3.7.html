@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+
+<body>
+
+<h2 style="text-align:center">Executives:</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>Executive Name</th>
+	<th>Organisation Name</th>
+	<th>Total amount</th>
+  </tr>
+  {% for Executive in Executives %}
+    <tr>
+      <td>{{ Executive.Executive_name }}</td>
+	  <td>{{ Executive.Organisation_name }}</td>
+      <td>{{ Executive.Total_amount }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+
+</body>
+</html>

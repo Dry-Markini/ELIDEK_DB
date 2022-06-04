@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+table, th, td {
+  border:1px solid black;
+  table-layout:fixed
+}
+</style>
+
+<body>
+
+<h1 style="text-align:center">Entries that satisfy the given criteria</h1>
+<h2 style="text-align:center">Programs:</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>ID</th>
+	  <th>Name</th>
+    <th>Administration</th>
+  </tr>
+  {% for Program in Programs %}
+    <tr>
+      <td>{{ Program.Program_id }}</td>
+	    <td>{{ Program.Name }}</td>
+      <td>{{ Program.Administration }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+<h2 style="text-align:center">Projects:</h2>
+
+<table style="overflow-x:auto;">
+  <tr>
+    <th>Working Researchers</th>
+    <th>Project ID</th>
+	  <th>Title</th>
+    <th>Summary</th>
+    <th>Funding amount</th>
+    <th>Starting Date</th>
+    <th>Finish Date</th>
+    <TH>Duration</th>
+    <th>Program ID</th>
+    <th>Executive ID</th>
+    <th>Organisation ID</th>
+    <th>Supervisor ID</th>
+    <th>Evaluator ID</th>
+    <th>Evaluation Date</th>
+    <th>Grade</th>
+  </tr>
+  {% for Project in Projects %}
+    <tr>
+      <td><button onclick="location.href = '/3.1/{{Project.Project_id}}';" >View</button></td>
+      <td>{{ Project.Project_id }}</td>
+	    <td>{{ Project.Title }}</td>
+      <td>{{ Project.Summary }}</td>
+	    <td>{{ Project.Funding_amount }}</td>
+      <td>{{ Project.Start_date }}</td>
+	    <td>{{ Project.Finish_date }}</td>
+      <td>{{ Project.Duration }}</td>
+      <td>{{ Project.Program_id }}</td>
+	    <td>{{ Project.Executive_id }}</td>
+      <td>{{ Project.Org_id }}</td>
+	    <td>{{ Project.Researcher_id_sup }}</td>
+      <td>{{ Project.Researcher_id_eval }}</td>
+	    <td>{{ Project.Eval_date }}</td>
+      <td>{{ Project.Eval_grade }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+
+</body>
+</html>

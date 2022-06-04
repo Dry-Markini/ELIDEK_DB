@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+
+<body>
+
+<h2 style="text-align:center">Field Pairs:</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>1st Field name</th>
+	<th>2nd Field name</th>
+	<th>#Projects per pair</th>
+  </tr>
+  {% for Field_pair in Field_pairs %}
+    <tr>
+      <td>{{ Field_pair.Field_name_1 }}</td>
+	    <td>{{ Field_pair.Field_name_2 }}</td>
+      <td>{{ Field_pair.Projects_per_field_pair }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+
+</body>
+</html>

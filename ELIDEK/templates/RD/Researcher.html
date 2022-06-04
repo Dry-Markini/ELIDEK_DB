@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+
+<div class = "alert-custom col-md-12">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message | safe }}
+                <!-- |safe is a jinja2 filter that prevents automatic escaping -->
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+
+<h2 style="text-align:center">Researchers:</h2>
+
+<form action = "/CRUD/Read-Modify-Delete/Researcher" method = "post">
+<table style="overflow-x:auto;">
+  <tr>
+    <th>Researcher ID</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Sex</th>
+    <th>Birthdate</th>
+    <th>Organisation ID</th>
+    <th>Start Date</th>
+    <th><input type="submit" name="button" value="Update"></form></th>
+    <th><input type="submit" name="button" value="Delete"></form></th>
+  </tr>
+
+  {% for Researcher in Researchers %}
+    <tr>
+      <td>{{Researcher.Researcher_id }}</td>
+      <td>{{Researcher.First_name }}</td>
+      <td>{{Researcher.Last_name }}</td>
+      <td>{{Researcher.Sex }}</td>
+      <td>{{Researcher.Birthdate }}</td>
+      <td>{{Researcher.Org_id }}</td>
+      <td>{{Researcher.Start_date }}</td>
+
+      <td style="text-align:center"><input type="radio" name="Update" value="{{ Researcher.Researcher_id }}"></td>
+      <td style="text-align:center"><input type="checkbox" name="Delete" value="{{ Researcher.Researcher_id }}"></td>
+    </tr>
+  {% endfor %}
+</table>
+</form>
+
+</body>
+</html>

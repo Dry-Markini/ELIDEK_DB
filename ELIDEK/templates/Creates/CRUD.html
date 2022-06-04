@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+
+<body>
+
+<h2 style="text-align:center">CRUD MENU:</h2>
+
+<form action="/CRUD/choice" method="POST">
+  <h3>TABLE:</h3>
+  <input type="radio" id="Project" name="Table" value="Project">
+  <label for="Project">Project</label><br>
+  <input type="radio" id="Researcher" name="Table" value="Researcher">
+  <label for="Researcher">Researcher</label><br>
+  <input type="radio" id="Organisation" name="Table" value="Organisation">
+  <label for="Organisation">Organisation</label><br>
+  <input type="radio" id="Phone" name="Table" value="Phone">
+  <label for="Phone">Phone</label><br>
+  <input type="radio" id="Field" name="Table" value="Field">
+  <label for="Field">Field</label><br>
+  <input type="radio" id="Project in Field" name="Table" value="Project_in_Field">
+  <label for="Project in Field">Project in Field</label><br>
+  <input type="radio" id="Participates" name="Table" value="Participates">
+  <label for="Participates">Participates</label><br>
+  <input type="radio" id="Deliverable" name="Table" value="Deliverable">
+  <label for="Deliverable">Deliverable</label><br>
+  <input type="radio" id="Program" name="Table" value="Program">
+  <label for="Program">Program</label><br>
+  <input type="radio" id="Executive" name="Table" value="Executive">
+  <label for="Executive">Executive</label><br><br>
+
+  <input type="submit" name="button" value="Read/Modify/Delete Contents">
+  <input type="submit" name="button" value="Create Entry">
+</form>
+
+
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+
+<body>
+
+<h2 style="text-align:center">Researchers:</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>ID</th>
+	  <th>First Name</th>
+    <th>Last Name</th>
+    <th>Sex</th>
+    <th>Birthdate</th>
+ 	  <th>Organisation ID</th>
+    <th>Start Date</th>
+  </tr>
+  {% for Researcher in Researchers %}
+    <tr>
+      <td>{{ Researcher.Researcher_id }}</td>
+	     <td>{{ Researcher.First_name }}</td>
+      <td>{{ Researcher.Last_name }}</td>
+	     <td>{{ Researcher.Sex }}</td>
+       <td>{{ Researcher.Birthdate }}</td>
+       <td>{{ Researcher.Org_id }}</td>
+       <td>{{ Researcher.Start_date }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+</body>
+</html>

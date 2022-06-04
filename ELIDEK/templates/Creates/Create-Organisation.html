@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+
+<div class = "alert-custom col-md-12">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message | safe }}
+                <!-- |safe is a jinja2 filter that prevents automatic escaping -->
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+
+<body>
+
+<h2 style="text-align:center">CREATE ORGANISATION</h2>
+
+<p><i>Only the fields corresponding to the type of organisation
+  (unversity, company, research facility) will be processed.</i></p>
+
+<form action="/CRUD/Create/Organisation" method="POST">
+  <h3>ADD TABLE:</h3>
+  <label>Abbreviation:</label><br>
+  <input type="text" id="Abbreviation" name="Abbreviation"><br><br>
+  <label>Organisation Name:</label><br>
+  <input type="text" id="Name" name="Name"><br><br>
+  <label>ZIP Code:</label><br>
+  <input type="text" pattern="[0-9]{5}" name="Zip_code"><br><br>
+  <label>Address:</label><br>
+  <input type="text" id="Street" name="Street"><br><br>
+  <label>City:</label><br>
+  <input type="text" id="City" name="City"><br><br>
+  <label>Type of Organisation:</label><br>
+    <select name = "Type">
+    <option value = "University">University</option>
+    <option value = "Research facility">Research facility</option>
+    <option value = "Company">Company</option>
+    </select><br><br>
+  <label>Ministry Budget:</label><br>
+  <input type="number" min='0' id="Min_budget" name="Min_budget"><br><br>
+  <label>Private Budget:</label><br>
+  <input type="number" min='0' id="Priv_budget" name="Priv_budget"><br><br>
+  <label>Equity:</label><br>
+  <input type="number" min='0' id="Equity" name="Equity"><br><br>
+
+  <input type="submit" name="button">
+</form>
+
+
+</body>
+</html>

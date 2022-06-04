@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+
+<div class = "alert-custom col-md-12">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message | safe }}
+                <!-- |safe is a jinja2 filter that prevents automatic escaping -->
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+
+<body>
+
+<h2 style="text-align:center">CREATE DELIVERABLE</h2>
+
+<form action="/CRUD/Create/Deliverable" method="POST">
+  <h3>ADD TABLE:</h3>
+  <label>Project ID:</label><br>
+  <input type="number" min='1' id="Project_id" name="Project_id"><br><br>
+  <label>Title:</label><br>
+  <input type="text" id="Title" name="Title"><br><br>
+  <label>Summary:</label><br>
+  <input type="text" id="Summary" name="Summary"><br><br>
+  <label>Due Date:</label><br>
+  <input type="date" id="Due_date" name="Due_date"><br><br>
+
+
+  <input type="submit" name="button">
+</form>
+
+
+</body>
+</html>

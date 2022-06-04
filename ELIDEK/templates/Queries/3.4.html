@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+
+<body>
+
+<h2 style="text-align:center">Organisations:</h2>
+
+<table style="width:100%">
+  <tr>
+    <th>ID</th>
+	<th>1st Year</th>
+	<th>2nd Year</th>
+	<th>Projects in those years</th>
+  </tr>
+  {% for Organisation in Organisations %}
+    <tr>
+      <td>{{ Organisation.Org_id }}</td>
+	  <td>{{ Organisation.Year_1 }}</td>
+      <td>{{ Organisation.Year_2 }}</td>
+	  <td>{{ Organisation.Projects_in_year }}</td>
+    </tr>
+  {% endfor %}
+</table>
+
+
+</body>
+</html>

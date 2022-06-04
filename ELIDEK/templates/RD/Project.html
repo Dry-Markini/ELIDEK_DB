@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+
+<div class = "alert-custom col-md-12">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message | safe }}
+                <!-- |safe is a jinja2 filter that prevents automatic escaping -->
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+
+<h2 style="text-align:center">Projects:</h2>
+
+<form action = "/CRUD/Read-Modify-Delete/Project" method = "post">
+<table style="overflow-x:auto;">
+  <tr>
+    <th>Project ID</th>
+    <th>Title</th>
+    <th>Summary</th>
+    <th>Funding Amount</th>
+    <th>Start Date</th>
+    <th>Finish Date</th>
+    <th>Program ID</th>
+    <th>Executive ID</th>
+    <th>Organisation ID</th>
+    <th>ID of supervisor</th>
+    <th>ID of evaluator</th>
+    <th>Evaluation Date</th>
+    <th>Evaluation Grade</th>
+    <th><input type="submit" name="button" value="Update"></form></th>
+    <th><input type="submit" name="button" value="Delete"></form></th>
+  </tr>
+
+  {% for Project in Projects %}
+    <tr>
+      <td>{{ Project.Project_id }}</td>
+      <td>{{ Project.Title }}</td>
+      <td>{{ Project.Summary }}</td>
+      <td>{{ Project.Funding_amount }}</td>
+      <td>{{ Project.Start_date }}</td>
+      <td>{{ Project.Finish_date }}</td>
+      <td>{{ Project.Program_id }}</td>
+      <td>{{ Project.Executive_id }}</td>
+      <td>{{ Project.Org_id }}</td>
+      <td>{{ Project.Researcher_id_sup }}</td>
+      <td>{{ Project.Researcher_id_eval }}</td>
+      <td>{{ Project.Eval_date }}</td>
+      <td>{{ Project.Eval_grade }}</td>
+
+      <td style="text-align:center"><input type="radio" name="Update" value="{{ Project.Project_id }}"></td>
+      <td style="text-align:center"><input type="checkbox" name="Delete" value="{{ Project.Project_id }}"></td>
+    </tr>
+  {% endfor %}
+</table>
+</form>
+
+</body>
+</html>

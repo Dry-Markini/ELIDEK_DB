@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<div class = "alert-custom col-md-12">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+        {% if messages %}
+            {% for category, message in messages %}
+            <div class="alert alert-{{ category }} alert-dismissible fade show" role="alert">
+                {{ message | safe }}
+                <!-- |safe is a jinja2 filter that prevents automatic escaping -->
+            </div>
+            {% endfor %}
+        {% endif %}
+    {% endwith %}
+</div>
+
+<style>
+table, th, td {
+  border:1px solid black;
+}
+</style>
+<body>
+
+<h2 style="text-align:center">Executives:</h2>
+
+<form action = "/CRUD/Read-Modify-Delete/Executive" method = "post">
+<table style="overflow-x:auto;">
+  <tr>
+    <th>Executive ID</th>
+    <th>Name</th>
+    <th><input type="submit" name="button" value="Update"></form></th>
+    <th><input type="submit" name="button" value="Delete"></form></th>
+  </tr>
+
+  {% for Executive in Executives %}
+    <tr>
+      <td>{{ Executive.Executive_id }}</td>
+      <td>{{ Executive.Name }}</td>
+      <td style="text-align:center"><input type="radio" name="Update" value="{{ Executive.Executive_id }}"></td>
+      <td style="text-align:center"><input type="checkbox" name="Delete" value="{{ Executive.Executive_id }}"></td>
+    </tr>
+  {% endfor %}
+</table>
+</form>
+
+</body>
+</html>
