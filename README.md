@@ -14,6 +14,6 @@ Execute run.py and enjoy!
 The page is located at localhost, port 3000.
 
 # About us
-JerryMountak -> Γεράσιμος Μουντάκης el19007@mail.ntua.gr
-PETROS2001 -> Πέτρος Μαράτος        el19044@mail.ntua.gr
+JerryMountak -> Γεράσιμος Μουντάκης el19007@mail.ntua.gr  
+PETROS2001 -> Πέτρος Μαράτος        el19044@mail.ntua.gr  
 Dry-Markini -> Μάρκος Δεληγιάννης   el19023@mail.ntua.gr
